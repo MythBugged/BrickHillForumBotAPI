@@ -1,0 +1,35 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+PATH = "C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(PATH)
+
+driver.get("https://brick-hill.com/%22)
+login = driver.find_element_by_class_name("login-button")
+login.click()
+user = driver.find_element_by_name("username")
+user.send_keys("DrimDrot")
+password = driver.find_element_by_name("password")
+password.send_keys("hello_world_hello_world")
+loginbutton = driver.find_element_by_xpath("/html/body/div/div/div/div[2]/form/button")
+loginbutton.click()
+time.sleep(3)
+forumbutton = driver.find_element_by_xpath("/html/body/nav/div[1]/div/div[1]/ul/li[5]/a")
+forumbutton.click()
+time.sleep(3)
+offtopic = driver.find_element_by_xpath("/html/body/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div/a")
+offtopic.click()
+time.sleep(3)
+createpot = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div[1]/a")
+createpot.click()
+time.sleep(3)
+pottitle = driver.find_element_by_name("my name is mister anime")
+pottitle.send_keys("FORUM POST TITLE GOES")
+potbody = driver.find_element_by_name("my name is mister anime")
+potbody.send_keys("I agree")
+confirmpot = driver.find_element_by_xpath("/html/body/div[4]/div[2]/div[2]/div[2]/form/div/button[1]")
+confirmpot.click()
+time.sleep(5)
+
+driver.quit()
